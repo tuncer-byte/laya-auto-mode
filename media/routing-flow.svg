@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">Laya routes Copilot requests locally</title>
+  <desc id="desc">A Copilot request is classified locally by Laya and sent to a fast, balanced, or reasoning model tier.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#243047"/></marker>
+  </defs>
+  <rect width="1200" height="330" fill="#f7f8fc"/>
+  <text x="60" y="63" fill="#19233a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">LOCAL ROUTING. THE RIGHT COPILOT MODEL PER REQUEST.</text>
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <rect x="60" y="125" width="210" height="120" rx="10" fill="#ffffff" stroke="#c7d0e0" stroke-width="2"/>
+    <text x="85" y="174" fill="#19233a" font-size="18" font-weight="700">Copilot Chat</text>
+    <text x="85" y="204" fill="#596579" font-size="15">prompt + tools + context</text>
+    <path d="M270 185 H380" stroke="#243047" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="390" y="105" width="250" height="160" rx="10" fill="#15233b"/>
+    <text x="418" y="155" fill="#d8f86b" font-size="20" font-weight="700">Laya Auto</text>
+    <text x="418" y="190" fill="#ffffff" font-size="16">on-device typed decisions</text>
+    <text x="418" y="220" fill="#aebcd1" font-size="14">zero generated routing tokens</text>
+    <path d="M640 185 H750" stroke="#243047" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="760" y="95" width="160" height="55" rx="8" fill="#e2f5d3" stroke="#8fbc76" stroke-width="2"/>
+    <text x="787" y="129" fill="#214222" font-size="16" font-weight="700">FAST</text>
+    <rect x="760" y="160" width="160" height="55" rx="8" fill="#fff0c8" stroke="#d7ad52" stroke-width="2"/>
+    <text x="777" y="194" fill="#624500" font-size="16" font-weight="700">BALANCED</text>
+    <rect x="760" y="225" width="160" height="55" rx="8" fill="#f9d8dc" stroke="#c8818d" stroke-width="2"/>
+    <text x="775" y="259" fill="#692833" font-size="16" font-weight="700">REASONING</text>
+    <path d="M920 122 H1015" stroke="#243047" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M920 187 H1015" stroke="#243047" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M920 252 H1015" stroke="#243047" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="1025" y="125" width="125" height="120" rx="10" fill="#ffffff" stroke="#c7d0e0" stroke-width="2"/>
+    <text x="1049" y="174" fill="#19233a" font-size="17" font-weight="700">Copilot</text>
+    <text x="1049" y="202" fill="#596579" font-size="14">response</text>
+  </g>
+</svg>

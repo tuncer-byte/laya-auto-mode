@@ -1,0 +1,84 @@
+{
+  "name": "laya-copilot-router",
+  "displayName": "Laya Router for Copilot",
+  "description": "Adds 'Laya Auto' to the Copilot Chat model picker: an on-device Laya model reads each request and routes it to the right Copilot model.",
+  "version": "0.1.0",
+  "publisher": "laya-mlx",
+  "license": "Apache-2.0",
+  "repository": { "type": "git", "url": "https://github.com/tuncer-byte/laya-auto-mode.git" },
+  "engines": { "vscode": "^1.104.0" },
+  "categories": ["AI", "Chat"],
+  "keywords": ["copilot", "model router", "laya", "mlx", "local ai"],
+  "icon": "media/icon.png",
+  "main": "./out/extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "languageModelChatProviders": [
+      { "vendor": "laya", "displayName": "Laya Router" }
+    ],
+    "commands": [
+      { "command": "laya.showDecisions", "title": "Show Routing Decisions", "category": "Laya", "icon": "$(compass)" },
+      { "command": "laya.dryRun", "title": "Route a Prompt (Dry Run)", "category": "Laya" },
+      { "command": "laya.restartServer", "title": "Restart Local Router", "category": "Laya" },
+      { "command": "laya.listModels", "title": "Show Model Tiers", "category": "Laya" }
+    ],
+    "configuration": {
+      "title": "Laya Router",
+      "properties": {
+        "laya.serverUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:8765",
+          "description": "Address of the local Laya routing server (laya-copilot)."
+        },
+        "laya.autoStart": {
+          "type": "boolean",
+          "default": true,
+          "description": "Start the local Laya server automatically when it is not running."
+        },
+        "laya.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Python interpreter with laya-mlx installed. Empty: the workspace .venv, then python3."
+        },
+        "laya.vendors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["copilot"],
+          "description": "Model vendors Laya may route to."
+        },
+        "laya.preferences": {
+          "type": "object",
+          "default": {},
+          "markdownDescription": "Preferred models per tier, as substring patterns in priority order. Example: `{\"fast\": [\"haiku\"], \"balanced\": [\"sonnet\"], \"reasoning\": [\"opus\"]}`",
+          "properties": {
+            "fast": { "type": "array", "items": { "type": "string" } },
+            "balanced": { "type": "array", "items": { "type": "string" } },
+            "reasoning": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "laya.tierOverrides": {
+          "type": "object",
+          "default": {},
+          "additionalProperties": { "enum": ["fast", "balanced", "reasoning"] },
+          "markdownDescription": "Force a model into a tier, by model id. Example: `{\"gpt-5\": \"reasoning\"}`"
+        },
+        "laya.showDecisionInChat": {
+          "type": "boolean",
+          "default": true,
+          "description": "Print a one-line routing note at the top of each chat answer."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.104.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.6.0"
+  }
+}
